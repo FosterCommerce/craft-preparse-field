@@ -209,6 +209,9 @@ class PreparseField extends Plugin
      */
     private function resetUploads()
     {
+		if (!empty($_POST['is_fe_upload_form']) && $_POST['is_fe_upload_form'] == 'yes') {
+			return;
+		}
         $_FILES = [];
         UploadedFile::reset();
     }
